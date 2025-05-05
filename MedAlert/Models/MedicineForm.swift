@@ -6,3 +6,15 @@
 //
 
 import Foundation
+
+///Форма лекарственного средства
+enum MedicineForm: String, Codable {
+    case tablet        // Таблетка
+    case capsule       // Капсула
+    case injection     // Инъекция (укол)
+    case drops         // Капли
+    case liquid        // Жидкость (суспензия, сироп)
+    case topical       // Местное средство: мазь, крем, гель
+    case spray         // Спрей
+}
+

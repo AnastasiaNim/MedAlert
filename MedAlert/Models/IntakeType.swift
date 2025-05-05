@@ -6,3 +6,11 @@
 //
 
 import Foundation
+
+/// Вид приема относительно еды
+enum IntakeType: String, Codable {
+    case beforeMeal   // До еды
+    case afterMeal    // После еды
+    case duringMeal   // Во время еды
+    case anyTime      // В любое время
+}
