@@ -10,21 +10,21 @@ import Foundation
 struct MedicineDraftItem {
     var type: MedicineForm = .tablet
     var name: String = ""
-    var doseValue: String = ""
+    var doseAmount: String = ""
     var doseType: DoseType = .tablet
     var intakeType: IntakeType = .beforeMeal
     var comment: String = ""
-    var reminderType: ReminderType = .onTime
+    var reminderType: ReminderType = .atMoment
     var intakeDays: [Weekday] = Weekday.allCases
     var startDate: Date = .now
     var endDate: Date = .now.added(component: .day, value: 1) ?? .now
-    var scheduledIntakes: [ScheduledIntake] = [.init(time: .now)]
+    var intakes: [MedicineDraftIntake] = [.init(time: .now)]
     
     var isInfoStepValid: Bool {
-        !name.isEmpty && !doseValue.isEmpty
+        !name.isEmpty && !doseAmount.isEmpty
     }
     
-    struct ScheduledIntake: Identifiable {
+    struct MedicineDraftIntake: Identifiable {
         let id = UUID()
         var time: Date
     }
@@ -35,7 +35,7 @@ let medicinesForTest: [MedicineDraftItem] = [
     MedicineDraftItem(
         type: .tablet,
         name: "Paracetamol",
-        doseValue: "500",
+        doseAmount: "500",
         doseType: .milligram,
         intakeType: .afterMeal,
         comment: "Take in case of fever",
@@ -43,12 +43,12 @@ let medicinesForTest: [MedicineDraftItem] = [
         intakeDays: [.monday, .wednesday, .friday],
         startDate: .now,
         endDate: Calendar.current.date(byAdding: .day, value: 7, to: .now) ?? .now,
-        scheduledIntakes: [.init(time: Date.todayAt(hour: 9, minute: 0))]
+        intakes: [.init(time: Date.todayAt(hour: 9, minute: 0))]
     ),
     MedicineDraftItem(
         type: .capsule,
         name: "Vitamin D",
-        doseValue: "1",
+        doseAmount: "1",
         doseType: .unit,
         intakeType: .duringMeal,
         comment: "Helps with calcium absorption",
@@ -56,20 +56,20 @@ let medicinesForTest: [MedicineDraftItem] = [
         intakeDays: [.sunday],
         startDate: .now,
         endDate: Calendar.current.date(byAdding: .month, value: 1, to: .now) ?? .now,
-        scheduledIntakes: [.init(time: Date.todayAt(hour: 12, minute: 0))]
+        intakes: [.init(time: Date.todayAt(hour: 12, minute: 0))]
     ),
     MedicineDraftItem(
         type: .drops,
         name: "Eye Drops",
-        doseValue: "2",
+        doseAmount: "2",
         doseType: .unit,
         intakeType: .anyTime,
         comment: "Use in case of dryness",
-        reminderType: .onTime,
+        reminderType: .atMoment,
         intakeDays: Weekday.allCases,
         startDate: .now,
         endDate: Calendar.current.date(byAdding: .weekOfYear, value: 2, to: .now) ?? .now,
-        scheduledIntakes: [
+        intakes: [
             .init(time: Date.todayAt(hour: 8, minute: 0)),
             .init(time: Date.todayAt(hour: 20, minute: 0))
         ]
@@ -77,7 +77,7 @@ let medicinesForTest: [MedicineDraftItem] = [
     MedicineDraftItem(
         type: .spray,
         name: "Nasal Spray",
-        doseValue: "1",
+        doseAmount: "1",
         doseType: .unit,
         intakeType: .beforeMeal,
         comment: "Use before meals if needed",
@@ -85,12 +85,12 @@ let medicinesForTest: [MedicineDraftItem] = [
         intakeDays: [.tuesday, .thursday],
         startDate: .now,
         endDate: Calendar.current.date(byAdding: .day, value: 10, to: .now) ?? .now,
-        scheduledIntakes: [.init(time: Date.todayAt(hour: 7, minute: 30))]
+        intakes: [.init(time: Date.todayAt(hour: 7, minute: 30))]
     ),
     MedicineDraftItem(
         type: .topical,
         name: "Skin Cream",
-        doseValue: "5",
+        doseAmount: "5",
         doseType: .gram,
         intakeType: .anyTime,
         comment: "Apply thin layer to affected area",
@@ -98,6 +98,6 @@ let medicinesForTest: [MedicineDraftItem] = [
         intakeDays: [.monday, .tuesday, .wednesday, .thursday, .friday],
         startDate: .now,
         endDate: Calendar.current.date(byAdding: .weekOfYear, value: 1, to: .now) ?? .now,
-        scheduledIntakes: [.init(time: Date.todayAt(hour: 21, minute: 0))]
+        intakes: [.init(time: Date.todayAt(hour: 21, minute: 0))]
     )
 ]

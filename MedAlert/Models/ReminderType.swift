@@ -9,7 +9,7 @@ import Foundation
 
 /// Вид напоминания (задержка в минутах до события)
 enum ReminderType: Int16, Codable {
-    case onTime = 0       // В момент события
+    case atMoment = 0       // В момент события
     case minutes10 = 10   // За 10 минут
     case minutes15 = 15   // За 15 минут
     case minutes30 = 30   // За 30 минут
