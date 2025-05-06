@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="23788" systemVersion="24E263" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithSwiftData="YES" userDefinedModelVersionIdentifier="">
+    <entity name="IntakeReportEntity" representedClassName="IntakeReportEntity" syncable="YES" codeGenerationType="class">
+        <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="isMissed" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="isTaken" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <relationship name="intake" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ScheduledIntakeEntity" inverseName="reports_" inverseEntity="ScheduledIntakeEntity"/>
+    </entity>
+    <entity name="MedicineEntity" representedClassName="MedicineEntity" syncable="YES" codeGenerationType="class">
+        <attribute name="comment" optional="YES" attributeType="String"/>
+        <attribute name="doseType_" optional="YES" attributeType="String"/>
+        <attribute name="doseValue" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="endDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="intakeDays_" optional="YES" attributeType="String"/>
+        <attribute name="intakeType_" optional="YES" attributeType="String"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="reminderType_" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="startDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="type_" optional="YES" attributeType="String"/>
+        <relationship name="scheduledIntakes_" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ScheduledIntakeEntity" inverseName="medicine" inverseEntity="ScheduledIntakeEntity"/>
+    </entity>
+    <entity name="ScheduledIntakeEntity" representedClassName="ScheduledIntakeEntity" syncable="YES" codeGenerationType="class">
+        <attribute name="time" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <relationship name="medicine" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="MedicineEntity" inverseName="scheduledIntakes_" inverseEntity="MedicineEntity"/>
+        <relationship name="reports_" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="IntakeReportEntity" inverseName="intake" inverseEntity="IntakeReportEntity"/>
+    </entity>
+</model>
