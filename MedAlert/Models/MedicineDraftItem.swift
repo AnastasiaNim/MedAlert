@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct MedicineItem {
+struct MedicineDraftItem {
     var type: MedicineForm = .tablet
     var name: String = ""
     var doseValue: String = ""
@@ -31,8 +31,8 @@ struct MedicineItem {
 }
 
 
-let medicinesForTest: [MedicineItem] = [
-    MedicineItem(
+let medicinesForTest: [MedicineDraftItem] = [
+    MedicineDraftItem(
         type: .tablet,
         name: "Paracetamol",
         doseValue: "500",
@@ -45,7 +45,7 @@ let medicinesForTest: [MedicineItem] = [
         endDate: Calendar.current.date(byAdding: .day, value: 7, to: .now) ?? .now,
         scheduledIntakes: [.init(time: Date.todayAt(hour: 9, minute: 0))]
     ),
-    MedicineItem(
+    MedicineDraftItem(
         type: .capsule,
         name: "Vitamin D",
         doseValue: "1",
@@ -58,7 +58,7 @@ let medicinesForTest: [MedicineItem] = [
         endDate: Calendar.current.date(byAdding: .month, value: 1, to: .now) ?? .now,
         scheduledIntakes: [.init(time: Date.todayAt(hour: 12, minute: 0))]
     ),
-    MedicineItem(
+    MedicineDraftItem(
         type: .drops,
         name: "Eye Drops",
         doseValue: "2",
@@ -74,7 +74,7 @@ let medicinesForTest: [MedicineItem] = [
             .init(time: Date.todayAt(hour: 20, minute: 0))
         ]
     ),
-    MedicineItem(
+    MedicineDraftItem(
         type: .spray,
         name: "Nasal Spray",
         doseValue: "1",
@@ -87,7 +87,7 @@ let medicinesForTest: [MedicineItem] = [
         endDate: Calendar.current.date(byAdding: .day, value: 10, to: .now) ?? .now,
         scheduledIntakes: [.init(time: Date.todayAt(hour: 7, minute: 30))]
     ),
-    MedicineItem(
+    MedicineDraftItem(
         type: .topical,
         name: "Skin Cream",
         doseValue: "5",
