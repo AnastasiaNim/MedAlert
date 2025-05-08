@@ -1,5 +1,5 @@
 //
-//  ReminderType.swift
+//  ReminderOffsetType.swift
 //  MedAlert
 //
 //  Created by Anastasia N.  on 05.05.2025.
@@ -8,7 +8,7 @@
 import Foundation
 
 /// Вид напоминания (задержка в минутах до события)
-enum ReminderType: Int16, Codable {
+enum ReminderOffsetType: Int16, Codable {
     case atMoment = 0       // В момент события
     case minutes10 = 10   // За 10 минут
     case minutes15 = 15   // За 15 минут

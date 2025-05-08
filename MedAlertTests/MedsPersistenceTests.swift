@@ -39,7 +39,7 @@ final class MedsPersistenceTests: XCTestCase {
             XCTAssertEqual(mock.doseType, actual.doseType, "Тип дозы не совпадает")
             XCTAssertEqual(mock.intakeType, actual.intakeType, "Тип приёма не совпадает")
             XCTAssertEqual(mock.comment, actual.comment, "Комментарий не совпадает")
-            XCTAssertEqual(mock.reminderType, actual.reminderType, "Напоминание не совпадает")
+            XCTAssertEqual(mock.reminderType, actual.reminderOffsetType, "Напоминание не совпадает")
             XCTAssertEqual(mock.intakeDays, actual.intakeDays, "Дни приёма не совпадают")
             XCTAssertEqual(mock.startDate.timeIntervalSince1970, actual.startDate!.timeIntervalSince1970, accuracy: 1, "Дата начала не совпадает")
             XCTAssertEqual(mock.endDate.timeIntervalSince1970, actual.endDate!.timeIntervalSince1970, accuracy: 1, "Дата окончания не совпадает")
