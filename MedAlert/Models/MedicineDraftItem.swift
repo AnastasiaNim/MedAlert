@@ -14,7 +14,7 @@ struct MedicineDraftItem {
     var doseType: DoseType = .tablet
     var intakeType: IntakeType = .beforeMeal
     var comment: String = ""
-    var reminderType: ReminderType = .atMoment
+    var reminderType: ReminderOffsetType = .atMoment
     var intakeDays: [Weekday] = Weekday.allCases
     var startDate: Date = .now
     var endDate: Date = .now.added(component: .day, value: 1) ?? .now

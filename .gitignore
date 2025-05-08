@@ -1,0 +1,9 @@
+!/*.xcodeproj
+/*.xcodeproj/xcuserdata
+dresman
+.DS_Store
+._.DS_Store
+**/.DS_Store
+**/._.DS_Store
+**/xcuserdata/
+xcuserdata/

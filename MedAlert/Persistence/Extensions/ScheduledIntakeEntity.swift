@@ -41,7 +41,12 @@ extension ScheduledIntakeEntity {
         
         let weekday = String(day.weekday()?.rawValue ?? 0)
         
-        let predicate = NSPredicate(format: "time >= %@ AND time < %@ AND medicine.intakeDays_ CONTAINS %@", day.startOfDay as NSDate, day.endOfDay as NSDate, weekday)
+        let predicate = NSPredicate(
+            format: "medicine.startDate <= %@ AND medicine.endDate >= %@ AND medicine.intakeDays_ CONTAINS %@",
+            day.endOfDay as NSDate,
+            day.startOfDay as NSDate,
+            weekday
+        )
         
         let request = ScheduledIntakeEntity.fetchRequest()
         request.predicate = predicate

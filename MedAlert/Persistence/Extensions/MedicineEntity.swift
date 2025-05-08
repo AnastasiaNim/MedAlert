@@ -37,12 +37,12 @@ extension MedicineEntity {
         }
     }
     
-    var reminderType: ReminderType {
+    var reminderOffsetType: ReminderOffsetType {
         get {
-            ReminderType(rawValue: self.reminderType_) ?? .atMoment
+            ReminderOffsetType(rawValue: self.reminderOffsetType_) ?? .atMoment
         }
         set {
-            self.reminderType_ = newValue.rawValue
+            self.reminderOffsetType_ = newValue.rawValue
         }
     }
     
@@ -79,7 +79,7 @@ extension MedicineEntity {
         newEntity.endDate = item.endDate
         newEntity.intakeDays = item.intakeDays
         newEntity.intakeType = item.intakeType
-        newEntity.reminderType = item.reminderType
+        newEntity.reminderOffsetType = item.reminderType
         newEntity.doseValue = Int32(item.doseAmount) ?? 1
         newEntity.startDate = item.startDate
         newEntity.scheduledIntakes = item.intakes.map { makeIntake(item: $0, parent: newEntity, context: context) }
